@@ -27,6 +27,32 @@ plt.show()
 
 Decision trees, on the other hand, work in a very different way. Instead of fitting a line, they split the data based on questions like “is the feature greater than this value?” Each split makes the tree more specific until you end up at a prediction. I liked trees because they are intuitive. You can actually trace the path and explain why the model made a decision. They also don’t need much preprocessing and can handle both numbers and categories. But the main problem I saw is that they can easily overfit, especially when the tree is too deep. Small changes in the data can also change the whole structure of the tree. In one of our exercises with Random Forests, I saw how combining many trees helped with this problem. A single decision tree might memorize the data too much, but a random forest balances it out by averaging the predictions from many trees. That made the results more stable and accurate, which really highlighted why ensembles are often preferred over a single tree.
 
+Here is an example of Decision Trees.
+from sklearn.datasets import make_classification
+from sklearn.tree import DecisionTreeClassifier, plot_tree
+from sklearn.ensemble import RandomForestClassifier
+import matplotlib.pyplot as plt
+
+X, y = make_classification(n_features=2, n_redundant=0, n_classes=2, 
+                           n_clusters_per_class=1, n_samples=100, random_state=42)
+
+# Single decision tree
+dt = DecisionTreeClassifier(max_depth=3, random_state=42).fit(X, y)
+
+# Random forest
+rf = RandomForestClassifier(n_estimators=50, random_state=42).fit(X, y)
+
+print("Decision Tree Accuracy:", dt.score(X, y))
+print("Random Forest Accuracy:", rf.score(X, y))
+
+plt.figure(figsize=(8,5))
+plot_tree(dt, filled=True, feature_names=["Feature 1", "Feature 2"], class_names=["Class 0", "Class 1"])
+plt.title("Decision Tree Example")
+plt.savefig("decision_tree.png")
+plt.show()
+
+
+
 SVMs were probably the trickiest for me to wrap my head around at first. The main idea is that they try to separate classes by finding the best boundary that maximizes the margin between the closest points. What makes SVMs powerful is the “kernel trick,” which allows the algorithm to separate data that isn’t linearly separable by transforming it into higher dimensions. In class, I tested both linear and RBF kernels on a tabular dataset. The linear kernel worked okay, but the RBF kernel was able to capture more complex boundaries, which improved accuracy. The drawback I noticed is that SVMs take longer to train and are harder to interpret compared to trees or linear models. Tuning the hyperparameters like gamma also made a big difference and it wasn’t always clear what the best values should be.
 
 Comparing the three methods side by side, I noticed each has its strengths and weaknesses. Linear models are simple and fast but can be too limited when the data isn’t linear. Decision trees are easy to explain and flexible, but they overfit easily. SVMs works very well especially when the data is high-dimensional or nonlinear, but it can be slow to run and harder to explain. In practice, I think the choice depends a lot on the situation. If I needed a quick answer, I’d start with a linear model. If I needed clear rules, like in financial institutions, a decision tree maybe would make more sense. If the data was complex and accuracy mattered most like scientific research, then I’d probably lean toward SVMs.
