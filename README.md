@@ -36,11 +36,7 @@ import matplotlib.pyplot as plt
 
 X, y = make_classification(n_features=2, n_redundant=0, n_classes=2, 
                            n_clusters_per_class=1, n_samples=100, random_state=42)
-
-# Single decision tree
 dt = DecisionTreeClassifier(max_depth=3, random_state=42).fit(X, y)
-
-# Random forest
 rf = RandomForestClassifier(n_estimators=50, random_state=42).fit(X, y)
 
 print("Decision Tree Accuracy:", dt.score(X, y))
