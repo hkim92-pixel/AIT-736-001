@@ -51,6 +51,7 @@ plt.title("Decision Tree Example")
 plt.savefig("decision_tree.png")
 plt.show()
 
+![Decision Tree](DecisionTree.png)
 
 
 SVMs were probably the trickiest for me to wrap my head around at first. The main idea is that they try to separate classes by finding the best boundary that maximizes the margin between the closest points. What makes SVMs powerful is the “kernel trick,” which allows the algorithm to separate data that isn’t linearly separable by transforming it into higher dimensions. In class, I tested both linear and RBF kernels on a tabular dataset. The linear kernel worked okay, but the RBF kernel was able to capture more complex boundaries, which improved accuracy. The drawback I noticed is that SVMs take longer to train and are harder to interpret compared to trees or linear models. Tuning the hyperparameters like gamma also made a big difference and it wasn’t always clear what the best values should be.
