@@ -23,7 +23,7 @@ plt.legend()
 plt.savefig("linear_regression_taxi.png")
 plt.show()
 
-
+![Linear Regression](LinearRegression.png)
 
 Decision trees, on the other hand, work in a very different way. Instead of fitting a line, they split the data based on questions like “is the feature greater than this value?” Each split makes the tree more specific until you end up at a prediction. I liked trees because they are intuitive. You can actually trace the path and explain why the model made a decision. They also don’t need much preprocessing and can handle both numbers and categories. But the main problem I saw is that they can easily overfit, especially when the tree is too deep. Small changes in the data can also change the whole structure of the tree. In one of our exercises with Random Forests, I saw how combining many trees helped with this problem. A single decision tree might memorize the data too much, but a random forest balances it out by averaging the predictions from many trees. That made the results more stable and accurate, which really highlighted why ensembles are often preferred over a single tree.
 
