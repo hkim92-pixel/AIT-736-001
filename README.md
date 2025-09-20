@@ -60,4 +60,14 @@ Comparing the three methods side by side, I noticed each has its strengths and w
 
 Overall, working with these three models gave me a good understanding of the tradeoffs in machine learning. I realized there isn’t a one fits all model for everything. It really depends on the underlying problem, the data, and what’s most important to solve. Seeing them actually applied to datasets like the taxi regression and the Random Forest vs. SVM comparisons helped me understand the strengths and limits of each method beyond just reading the theory.
 
+## Comparison Table
+
+| Aspect            | Linear Models                          | Decision Trees                          | Support Vector Machines (SVMs)               |
+|-------------------|----------------------------------------|-----------------------------------------|----------------------------------------------|
+| **Main idea**     | Fit a straight line or plane           | Split data into if–then rules            | Find the best boundary by maximizing margin  |
+| **Assumptions**   | Linear relationships, independent errors | Few assumptions about the data           | Data can be separated with a margin          |
+| **Strengths**     | Simple, fast, interpretable            | Easy to explain, handles mixed data       | Handles complex/nonlinear data, powerful in high dimensions |
+| **Weaknesses**    | Poor with nonlinear data, sensitive to outliers | Prone to overfitting, unstable            | Computationally heavy, hard to tune, less interpretable |
+| **Use cases**     | Forecasting, regression, quick baselines | Medical/finance decisions, customer segmentation | Text classification, image recognition, bioinformatics |
+| **Class takeaway**| Taxi fares: line shows the trend but misses complexity | Random forest helps trees be more stable | RBF kernel captures curvy boundaries but harder to explain |
 
